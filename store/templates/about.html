@@ -1,0 +1,70 @@
+{% extends 'basic.html' %}
+{% block title %}About Us{% endblock %}
+{% block body %}
+<main role="main" class="pt-5">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container pt-5">
+        <h1 class="display-3 text-center">THE CYCLE STORE</h1>
+        <p><b>Welcome to THE CYCLE STORE!</b><br>Are you ready to embark on an exciting cycling adventure? Look no further because at THE CYCLE STORE,  we have everything you need to make your two-wheeled dreams come true.   We are more than just a bike shop;   we are a haven for cycling   enthusiasts of all ages and abilities.
+            <br>
+            As avid cyclists ourselves, we understand the joy and freedom that comes with riding a bicycle. It's a feeling that cannot be replicated by any other mode of transportation. That's why we are passionate about providing the best bikes and accessories to our customers. We believe that every cyclist deserves a ride that matches their unique style, preferences, and goals.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+  
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Expertise And Guidance</h2>
+          <p>When it comes to cycling, having the right guidance  and  expertise can make all the difference. At THE CYCLE STORE, we  understand   that every  cyclist has unique needs and aspirations,  and we are here to be your  trusted  partners   in  your cycling journey. Our team of knowledgeable professionals is dedicated to providing expert guidance, ensuring that you have the best experience on two wheels. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Pedaling Towards Sustainability</h2>
+          <p>At THE CYCLE STORE, we are not only passionate about cycling but also deeply committed to promoting sustainability and protecting our planet. We believe that every small step towards sustainability can make a significant impact, and that's why we are constantly striving to pedal towards a greener future.
+          
+          </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Your Cycling Partner</h2>
+          <p>We understand that cycling is more than just a hobby—it's a way of life. That's why we are dedicated to being your trusted cycling companion, ready to support and enhance your riding experience every step of the way.When you choose us , you're not just purchasing a bike; you're joining a community of passionate cyclists.  </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+  
+      <hr>
+  
+    </div> <!-- /container -->
+  
+  </main>
+  
+  <footer class="container">
+    <p>&copy; Company 2017-2020</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script></body>
+  </html>  
+{% endblock %}
+{% block js%}
+<script>
+    // Find out the cart items from localStorage
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    } else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        updateCart(cart);
+    }
+  function updateCart(cart) {
+    var sum = 0;
+    console.log(cart);
+    for (var item in cart) {
+        sum = sum + cart[item][0];
+    }
+    document.getElementById('cart').innerHTML = sum;
+  }
+  </script>
+{% endblock %}

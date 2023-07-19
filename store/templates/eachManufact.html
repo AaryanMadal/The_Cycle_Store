@@ -1,0 +1,46 @@
+{%extends 'basic.html'%}
+{% block title %}Cycles{%endblock%}
+{%block body%}
+  
+    <div class="container pt-5" style="color: black;">
+       
+        <div class="row ms-5 ms-lg-3 ">
+        <h3 class="my-4">{{prod.0.manufacturer}} Cycles</h3>
+        {% for items in prod %}
+        <div class="card mx-5 my-2" style="width: 18rem;">
+            <img src="/media/{{items.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+
+            <h5 class="card-title">{{items.Cycle_name}}</h5>
+            <h6 class=card-title>Price:{{items.price}}</h6>
+            <p class="card-text">{{items.desc|slice:"0:55"}}...</p>
+            <a href="cycleview/{{items.Cycle_id}}" class="btn btn-primary">Quick View</a>
+            </div>
+        </div> 
+        {% endfor %}
+        </div>
+    </div>
+   
+    
+{%endblock%}
+{% block js%}
+<script>
+    // Find out the cart items from localStorage
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    } else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        updateCart(cart);
+    }
+  function updateCart(cart) {
+    var sum = 0;
+    console.log(cart);
+    for (var item in cart) {
+        sum = sum + cart[item][0];
+    }
+    document.getElementById('cart').innerHTML = sum;
+  }
+  </script>
+{% endblock %}
+
+
